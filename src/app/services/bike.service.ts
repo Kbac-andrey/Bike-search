@@ -16,8 +16,8 @@ export class BikeService {
     return this._http.get<BikeSearchResponse>(`${this._API_URL}/search`, {
       params: {
         location,
-        distance: '100',
-        stolenness: 'all',
+        distance: '10',
+        stolenness: 'proximity',
         per_page: '100'
       }
     });

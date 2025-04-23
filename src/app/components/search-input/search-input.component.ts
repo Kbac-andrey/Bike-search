@@ -38,7 +38,7 @@ export class SearchInputComponent implements OnInit, OnDestroy {
     this.searchControl.valueChanges.pipe(
       debounceTime(300),
       distinctUntilChanged(),
-      filter((value: ): value is string => value !== null && value.length >= 2),
+      filter((value): value is string => value !== null && value.length >= 2),
       takeUntil(this._destroy$)
     ).subscribe((value: string) => {
       this._searchStateService.setSearchQuery(value);
