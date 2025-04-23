@@ -1,0 +1,38 @@
+.bike-list-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+}
+
+.bikes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.loading, .error, .no-results {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+.error {
+  color: #dc3545;
+}
+
+@media (max-width: 768px) {
+  .bike-list-container {
+    padding: 1rem;
+  }
+
+  .bikes {
+    grid-template-columns: 1fr;
+  }
+}

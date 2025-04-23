@@ -1,0 +1,17 @@
+<section class="bike-card">
+  <div class="bike-card-media">
+    <img [src]="bike().thumb || 'assets/no-bike.svg'" [alt]="bike().title">
+  </div>
+  <div class="bike-card-info">
+    <h3 class="bike-card-info-title">{{ bike().title }}</h3>
+    <p class="bike-card-info-description">{{ bike().manufacturer_name }} - {{ bike().year || 'Year not specified' }}</p>
+    <p class="bike-card-info-description bike-card-info-description-location">{{ bike().stolen_location || 'Location not specified' }}</p>
+    <a 
+      [routerLink]="['/bike', bike().id]" 
+      class="bike-card-info-details-link"
+      [attr.aria-label]="'View details for ' + bike().title"
+    >
+     View Details
+    </a>
+  </div>
+</section>

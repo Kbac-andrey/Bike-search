@@ -1,0 +1,66 @@
+<div class="detail-container">
+  <a routerLink="/search" class="back-link">Back to Search</a>
+
+  @if (loading) {
+    <div class="loading">Loading...</div>
+  }
+
+  @if (error) {
+    <div class="error">{{ error }}</div>
+  }
+
+  @if (bike) {
+    <div class="bike-detail">
+      <div class="bike-image">
+        <img [src]="bike?.large_img || bike?.thumb || 'assets/no-bike.svg'" [alt]="bike?.title">
+      </div>
+
+      <div class="bike-info">
+        <h1>{{ bike?.title }}</h1>
+
+        <div class="info-grid">
+          <div class="info-item">
+            <strong>Manufacturer:</strong>
+            <span>{{ bike?.manufacturer_name || 'Not specified' }}</span>
+          </div>
+
+          <div class="info-item">
+            <strong>Model:</strong>
+            <span>{{ bike?.frame_model || 'Not specified' }}</span>
+          </div>
+
+          <div class="info-item">
+            <strong>Year:</strong>
+            <span>{{ bike?.year || 'Not specified' }}</span>
+          </div>
+
+          <div class="info-item">
+            <strong>Serial Number:</strong>
+            <span>{{ bike?.serial || 'Not specified' }}</span>
+          </div>
+
+          <div class="info-item">
+            <strong>Status:</strong>
+            <span [class.stolen]="bike?.stolen">
+              {{ bike?.stolen ? 'Stolen' : 'Not stolen' }}
+            </span>
+          </div>
+
+          @if (bike?.stolen && bike?.stolen_location) {
+            <div class="info-item">
+              <strong>Stolen Location:</strong>
+              <span>{{ bike?.stolen_location }}</span>
+            </div>
+          }
+        </div>
+
+        @if (bike?.description) {
+          <div class="description">
+            <h2>Description</h2>
+            <p>{{ bike?.description }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>

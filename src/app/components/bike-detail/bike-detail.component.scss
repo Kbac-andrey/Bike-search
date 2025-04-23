@@ -1,0 +1,111 @@
+.detail-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.bike-detail {
+  background: white;
+  border-radius: 0.625rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+
+  .bike-image {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .bike-info {
+    padding: 2rem;
+
+    h1 {
+      margin: 0 0 2rem;
+      color: #333;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      strong {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      span {
+        font-size: 1.1rem;
+        color: #333;
+
+        &.stolen {
+          color: #dc3545;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .description {
+      h2 {
+        color: #333;
+        margin: 0 0 1rem;
+      }
+
+      p {
+        color: #666;
+        line-height: 1.6;
+      }
+    }
+  }
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+.error {
+  color: #dc3545;
+}
+
+@media (max-width: 768px) {
+  .detail-container {
+    padding: 1rem;
+  }
+
+  .bike-detail {
+    .bike-image {
+      height: 300px;
+    }
+
+    .bike-info {
+      padding: 1rem;
+    }
+  }
+}

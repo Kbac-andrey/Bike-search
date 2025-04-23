@@ -1,0 +1,25 @@
+<div class="bike-list-container">
+  <h1>Bike Search</h1>
+
+  <app-search-input (search)="onSearch($event)" />
+
+  @if (loading) {
+    <div class="loading">Loading...</div>
+  }
+
+  @if (error) {
+    <div class="error">{{ error }}</div>
+  }
+
+  @if (bikes.length > 0) {
+    <div class="bikes">
+      @for (bike of bikes; track bike.id) {
+        <app-bike-card [bike]="bike" />
+      }
+    </div>
+  } @else if (!loading) {
+    <div class="no-results">
+      Enter address, zipcode, city or longitude search for bikes
+    </div>
+  }
+</div>
